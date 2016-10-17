@@ -1,0 +1,256 @@
+header {
+
+} // header
+
+// off-canvas menu
+.offCanvasMenu {
+  width: 100%;
+  height: 80%;
+  position: fixed;
+  padding-top: 30px;
+  bottom: 0;
+  left: 0;
+  background: $black;
+  opacity: 0;
+  transform: translate(0%, 100%);
+  transition: all 1s cubic-bezier(1.000, -0.650, 0.000, 1.650);
+  .menu {
+    width: 100%;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+    opacity: 0;
+    transition: all 1s;
+    list-style: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    @include respond-to(b-375) {
+      padding: 8px 0;
+      font-size: 1.35rem;
+      line-height: 1.35rem;
+    }
+    &:last-child {
+    }
+    &:nth-of-type(1){
+      transition-delay: 0.3s;
+    }
+    &:nth-of-type(2){
+      transition-delay: 0.4s;
+    }
+    &:nth-of-type(3){
+      transition-delay: 0.5s;
+    }
+    &:nth-of-type(4){
+      transition-delay: 0.6s;
+    }
+    &:nth-of-type(5){
+      transition-delay: 0.7s;
+    }
+    &:nth-of-type(6){
+      transition-delay: 0.8s;
+    }
+    &:nth-of-type(7){
+      transition-delay: 0.9s;
+    }
+    &:nth-of-type(8){
+      transition-delay: 1s;
+    }
+    a {
+      width: 100%;
+      padding: 5px 0;
+      color: $white;
+      &:hover {
+
+      }
+    }
+  }
+} // .offCanvasMenu
+.open {
+  opacity: 1;
+  transform: translate(0%, 10%);
+}
+.offCanvasMenu.open li {
+  opacity: 1;
+}
+
+// Veganburger ;-)
+// Props to Jonathan Suh: https://jonsuh.com/hamburgers/
+// Settings
+// ==================================================
+$hamburger-padding-x                       : 15px !default;
+$hamburger-padding-y                       : 15px !default;
+$hamburger-layer-width                     : 40px !default;
+$hamburger-layer-height                    : 4px !default;
+$hamburger-layer-spacing                   : 6px !default;
+$hamburger-layer-color                     : $black !default;
+$hamburger-layer-border-radius             : 4px !default;
+$hamburger-hover-opacity                   : 0.7 !default;
+$hamburger-hover-transition-duration       : 0.15s !default;
+$hamburger-hover-transition-timing-function: linear !default;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter    : opacity(50%) !default;
+.menu-link {
+  display: none;
+}
+.hamburger {
+  padding: $hamburger-padding-y $hamburger-padding-x;
+  display: inline-block;
+  cursor: pointer;
+
+  transition-property: opacity, filter;
+  transition-duration: $hamburger-hover-transition-duration;
+  transition-timing-function: $hamburger-hover-transition-timing-function;
+
+  &:hover {
+    @if $hamburger-hover-use-filter == true {
+      filter: $hamburger-hover-filter;
+    }
+    @else {
+      opacity: $hamburger-hover-opacity;
+    }
+  }
+}
+
+.hamburger-box {
+  width: $hamburger-layer-width;
+  height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
+  position: relative;
+}
+
+.hamburger-inner {
+  top: 50%;
+  margin-top: $hamburger-layer-height / -2;
+
+  &,
+  &::before,
+  &::after {
+    width: $hamburger-layer-width;
+    height: $hamburger-layer-height;
+    background-color: $hamburger-layer-color;
+    border-radius: $hamburger-layer-border-radius;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+  }
+
+  &::after {
+    bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+  }
+}
+.hamburger--collapse {
+  .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-duration: 0.15s;
+    transition-delay: 0.15s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+    &::after {
+      top: ($hamburger-layer-spacing * 2 + $hamburger-layer-height * 2) * -1;
+      transition: top 0.3s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+                  opacity 0.1s linear;
+    }
+
+    &::before {
+      transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+                  transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+  }
+
+  &.is-active {
+    .hamburger-inner {
+      transform: translate3d(0, ($hamburger-layer-spacing + $hamburger-layer-height) * -1, 0) rotate(-45deg);
+      transition-delay: 0.32s;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &::after {
+        top: 0;
+        opacity: 0;
+        transition: top 0.3s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+                    opacity 0.1s 0.27s linear;
+      }
+
+      &::before {
+        top: 0;
+        transform: rotate(-90deg);
+        transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+                    transform 0.15s 0.42s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+    }
+  }
+}
+
+.search-form {
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  color: $black;
+  .search-slide-wrap {
+    position: absolute;
+    top: 9px;
+    right: 25px;
+    input {
+      padding: 4px;
+      color: $black;
+      background-color: $white;
+      border: none;
+      font-size: 1rem;
+    }
+    ::placeholder {
+      color: $black;
+    }
+    button {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      float: right;
+      color: transparent;
+      border: none;
+      background: url("../img/header/search-icon.svg") 0 0 no-repeat;
+      text-indent: -9999px;
+      font-size: 0;
+      cursor: pointer;
+    }
+  }
+  .close {
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: $white;
+    fill: $white;
+    //font-family: $text-light;
+    font-size: 2rem;
+    &:hover {
+    }
+  }
+  .cls-1 {
+    color: $white;
+    fill: $white;
+  }
+} // .search-form

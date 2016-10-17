@@ -1,0 +1,179 @@
+// Modal
+.simplemodal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.simplemodal-container {
+  display: flex;
+  flex: 1;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  margin: auto;
+
+  .simplemodal-wrap {
+    max-width: 1020px;
+    padding-right: 10px; //0.5rem;
+    padding-left: 10px; //0.5rem;
+    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    background: url('../img/prevent-wildfires/prevention-modal-background.jpg');
+  }
+  
+  .step-modal {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    @include respond-to(b-455) {
+      padding: 20px;
+    }
+    @include respond-to(b-320) {
+      max-height: 500px;
+      padding: 5px;
+    }
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-bottom: 10px;
+    margin: 0 auto 25px;
+    .close-btn {
+      display: flex;
+      color: $black;
+      cursor: pointer;
+      text-transform: lowercase;
+      font-size: 2.4375rem;
+      font-style: italic;
+      &:hover {
+
+        .x-btn {
+          
+        }
+      }
+    }
+    .x-btn {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      width: 30px;
+      height: 25px;
+      margin: 7px 0 0 15px;
+      color: $white;
+      background-color: $black;
+      font-size: 0.9875rem;
+      line-height: 1rem;
+      transform: skewX(-20deg);
+      .x {
+        margin: auto;
+        margin-bottom: 5px;
+        transform: skewX(20deg);
+        font-style: normal;
+      }
+    }
+  } // .modal-header
+
+  .modal-body {
+    display: flex;
+    @include respond-to(b-850) {
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .step-info-wrap {
+    flex: 1;
+    padding: 0 10px 0 0;
+    @include respond-to(b-515) {
+      padding: 0;
+    }
+    h2 {
+      color: $black;
+      text-transform: lowercase;
+      font-size: 3.125rem;
+      @include respond-to(b-515) {
+        font-size: 2.5rem;
+      }
+      @include respond-to(b-530) {
+        line-height: 2.5625rem;
+      }
+    }
+    .step-description {
+      width: 100%;
+      float: left;
+      margin: 30px auto 25px;
+      color: $black;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      @include respond-to(b-515) {
+        margin: 10px auto;
+        font-size: 0.9rem;
+        line-height: 1rem;
+      }
+    }
+    ul {
+      width: 100%;
+      float: left;
+      padding: 0;
+      margin: 0;
+      margin-left: 10px;
+      color: $black;
+      font-size: 1.125rem;
+      line-height: 2rem;
+      @include respond-to(b-515) {
+        font-size: 0.9rem;
+        line-height: 1.25rem;
+      }
+    }
+    li:before {
+      display: inline-block;
+      width: 7px;
+      height: 4px;
+      padding-bottom: 8px;
+      margin-left: -10px;
+      content: "";
+      background-image: url('../img/prevent-wildfires/bullet-green.svg');
+      background-repeat: no-repeat;
+    }
+  } // .step-info-wrap
+
+  .step-image-wrap {
+    flex: 1;
+    height: auto;
+    padding: 30px 20px;
+    @include respond-to(b-850) {
+      width: 100%;
+      min-height: 200px;
+      padding: 0;
+      margin: 25px auto;
+    }
+    .step-image {
+      width: 100%;
+      height: 100%;
+    }
+  } // .step-image-wrap
+
+} // .simplemodal-container
+
+
+.lyt-modal-image {
+  width: 100%;
+  min-height: 550px;
+  padding: 0 20px;
+  @include respond-to(b-730) {
+    padding: 0 20px 20px 20px;
+  }
+  iframe {
+    width: 100%;
+    min-height: 550px;
+    #webmapTitle {
+      display: none !important;
+    }
+  }
+}

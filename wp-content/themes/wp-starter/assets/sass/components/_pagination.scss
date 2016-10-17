@@ -1,0 +1,31 @@
+.pagination-wrap {
+  width: 100%;
+  float: left;
+
+  .navigation li a,
+  .navigation li a:hover,
+  .navigation li.active a,
+  .navigation li.disabled {
+  	color: $white;
+  	text-decoration:none;
+  }
+
+  .navigation li {
+  	display: inline;
+  }
+
+  .navigation li a,
+  .navigation li a:hover,
+  .navigation li.active a,
+  .navigation li.disabled {
+  	cursor: pointer;
+  	padding: 10px;
+  	padding: 0.75rem;
+  }
+
+  .navigation li a:hover,
+  .navigation li.active a {
+    
+  }
+
+} // .pagination-wrap

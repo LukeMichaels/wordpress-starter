@@ -1,0 +1,66 @@
+// :::::::::: variables ::::::::::
+
+// Colors
+$white: #FFFFFF;
+$black: #323232;
+
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+
+/// Container's maximum width
+/// @type Length
+//$max-width: 1180px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @see {mixin} respond-to
+$breakpoints: (
+  'b-320': (max-width: 320px),
+  'b-340': (max-width: 340px),
+  'b-375': (max-width: 375px),
+  'b-395': (max-width: 395px),
+  'b-455': (max-width: 455px),
+  'b-475': (max-width: 475px),
+  'b-480': (max-width: 480px),
+  'b-483': (max-width: 483px),
+  'b-490': (max-width: 490px),
+  'b-515': (max-width: 515px),
+  'b-530': (max-width: 530px),
+  'b-546': (max-width: 546px),
+  'b-550': (max-width: 550px),
+  'b-590': (max-width: 590px),
+  'b-630': (max-width: 630px),
+  'b-665': (max-width: 665px),
+  'b-670': (max-width: 670px),
+  'b-688': (max-width: 688px),
+  'b-700': (max-width: 700px),
+  'b-715': (max-width: 715px),
+  'b-730': (max-width: 730px),
+  'b-745': (max-width: 745px),
+  'b-750': (max-width: 750px),
+  'b-768': (max-width: 768px),
+  'b-775': (max-width: 775px),
+  'b-800': (max-width: 800px),
+  'b-820': (max-width: 820px),
+  'b-832': (max-width: 832px),
+  'b-850': (max-width: 850px),
+  'b-870': (max-width: 870px),
+  'b-925': (max-width: 925px),
+  'b-945': (max-width: 945px),
+  'b-955': (max-width: 955px),
+  'b-960': (max-width: 960px),
+  'b-970': (max-width: 970px),
+  'b-980': (max-width: 980px),
+  'row': (max-width: 1020px),
+  'large': (min-width: 1020px),
+);
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
